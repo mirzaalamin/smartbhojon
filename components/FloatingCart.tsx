@@ -9,7 +9,7 @@ interface FloatingCartProps {
 
 const FloatingCart = ({ itemCount, totalPrice, onViewCart }: FloatingCartProps) => {
     return (
-        <div className="fixed bottom-4 left-4 right-4 z-50">
+        <div className="fixed bottom-4 left-4 right-4 z-1">
             <Button
                 onClick={onViewCart}
                 className="w-full h-14 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 shadow-2xl text-white font-medium text-lg"

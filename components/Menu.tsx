@@ -12,6 +12,7 @@ interface MenuProps {
     onAddToCart: (item: MenuItem, quantity?: number, notes?: string) => void;
     onViewCart: () => void;
     tableNumber: string;
+    viewItem: (item: MenuItem) => void
 }
 
 const mockMenuItems: MenuItem[] = [
@@ -81,7 +82,7 @@ const mockMenuItems: MenuItem[] = [
 const categories = ['All', 'Appetizers', 'Pizza', 'Main Course', 'Desserts'];
 const dietaryFilters = ['vegetarian', 'vegan', 'gluten-free', 'spicy'];
 
-const Menu = ({ onAddToCart, onViewCart, tableNumber }: MenuProps) => {
+const Menu = ({ onAddToCart, onViewCart, tableNumber, viewItem }: MenuProps) => {
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [selectedDietary, setSelectedDietary] = useState<string[]>([]);
     const [searchQuery, setSearchQuery] = useState('');
@@ -110,7 +111,7 @@ const Menu = ({ onAddToCart, onViewCart, tableNumber }: MenuProps) => {
     return (
         <div className="min-h-screen bg-gradient-to-br from-orange-50 to-amber-50">
             {/* Header */}
-            <div className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b shadow-sm">
+            <div className="sticky top-0 z-1 bg-white/95 backdrop-blur-sm border-b shadow-sm">
                 <div className="px-4 py-4">
                     <div className="flex items-center justify-between mb-4">
                         <div>
@@ -243,8 +244,8 @@ const Menu = ({ onAddToCart, onViewCart, tableNumber }: MenuProps) => {
                             <div className="flex justify-between items-end px-6 pb-5 space-x-4">
                                 <div>
                                     <div className='flex gap-2'>
-                                        {item.dietary.map(diet => (
-                                            <span className="inline-block mb-1 px-3 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-600">
+                                        {item.dietary.map((diet, index) => (
+                                            <span key={index} className="inline-block mb-1 px-3 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-600">
                                                 {diet}
                                             </span>
 
@@ -282,7 +283,7 @@ const Menu = ({ onAddToCart, onViewCart, tableNumber }: MenuProps) => {
                                 >
                                     Add to cart
                                 </Button>
-                                <Button className="flex-1 h-12 text-sm font-semibold py-2 border border-orange-500 text-orange-500 bg-transparent hover:bg-indigo-50 transition-colors">
+                                <Button className="flex-1 h-12 text-sm font-semibold py-2 border border-orange-500 text-orange-500 bg-transparent hover:bg-indigo-50 transition-colors" onClick={() => viewItem(item)}>
                                     View
                                 </Button>
                             </div>
