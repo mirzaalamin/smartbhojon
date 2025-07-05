@@ -21,7 +21,7 @@ export interface MenuItem {
   category: string;
   dietary: string[];
   spiceLevel?: number;
-  rating?: number;
+  rating: number;
 }
 
 export interface CartItem extends MenuItem {
