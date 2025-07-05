@@ -2,13 +2,13 @@ import React from 'react'
 import { Button } from './ui/button'
 import { MenuItem } from '@/app/page'
 
-// interface ItemProps {
-//     setSelectedViewItem: (item: MenuItem) => void;
-//     selectedViewItem: MenuItem;
-//     renderStars: (rating: number) => void
-// }
+interface ItemProps {
+    setSelectedViewItem: (item: MenuItem) => MenuItem | null;
+    selectedViewItem: MenuItem;
+    renderStars: (rating: number) => number;
+}
 
-const ViewItem = ({ setSelectedViewItem, selectedViewItem, renderStars }) => {
+const ViewItem = ({ setSelectedViewItem, selectedViewItem, renderStars }: ItemProps) => {
     return (
         <div>
             <div className="relative z-10" aria-labelledby="dialog-title" role="dialog" aria-modal="true">
@@ -36,7 +36,7 @@ const ViewItem = ({ setSelectedViewItem, selectedViewItem, renderStars }) => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 cursor-pointer" onClick={() => setSelectedViewItem(null)}>
+                            <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 cursor-pointer">
                                 <Button type="button" className="h-12 text-lg font-medium bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 shadow-lg w-full cursor-pointer">Close</Button>
                             </div>
                         </div>
