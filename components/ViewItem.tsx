@@ -1,5 +1,12 @@
 import React from 'react'
 import { Button } from './ui/button'
+import { MenuItem } from '@/app/page'
+
+// interface ItemProps {
+//     setSelectedViewItem: (item: MenuItem) => void;
+//     selectedViewItem: MenuItem;
+//     renderStars: (rating: number) => void
+// }
 
 const ViewItem = ({ setSelectedViewItem, selectedViewItem, renderStars }) => {
     return (
