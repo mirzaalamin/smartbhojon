@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { Button } from './ui/button'
 import { MenuItem } from '@/app/page'
 
 interface ItemProps {
-    setSelectedViewItem: (item: MenuItem) => MenuItem | null;
-    selectedViewItem: MenuItem;
-    renderStars: (rating: number) => number;
+    onClose: () => void;
+    selectedViewItem: MenuItem | null;   // ⬅️ allow “no item”
+    renderStars: (rating: number) => ReactElement;
 }
 
-const ViewItem = ({ setSelectedViewItem, selectedViewItem, renderStars }: ItemProps) => {
+const ViewItem = ({ onClose, selectedViewItem, renderStars }: ItemProps) => {
+
+    if (!selectedViewItem) return null;
+
     return (
         <div>
             <div className="relative z-10" aria-labelledby="dialog-title" role="dialog" aria-modal="true">
@@ -36,7 +39,7 @@ const ViewItem = ({ setSelectedViewItem, selectedViewItem, renderStars }: ItemPr
                                     </div>
                                 </div>
                             </div>
-                            <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 cursor-pointer">
+                            <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 cursor-pointer" onClick={onClose}>
                                 <Button type="button" className="h-12 text-lg font-medium bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 shadow-lg w-full cursor-pointer">Close</Button>
                             </div>
                         </div>

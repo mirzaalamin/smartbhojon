@@ -38,7 +38,7 @@ const Index = () => {
   const [orderStatus, setOrderStatus] = useState<OrderStatus>('preparing');
   const [tableNumber, setTableNumber] = useState<string>('');
   const [paymentStatus, setPaymentStatus] = useState<'pending' | 'success' | 'failed'>()
-  const [selectedViewItem, setSelectedViewItem] = useState<MenuItem>();
+  const [selectedViewItem, setSelectedViewItem] = useState<MenuItem | null>(null);
 
   const addToCart = (item: MenuItem, quantity: number = 1, notes?: string) => {
     setCartItems(prev => {
@@ -54,9 +54,9 @@ const Index = () => {
     });
   };
 
-  const viewItem = (item: MenuItem) => {
-    setSelectedViewItem(item)
-  }
+  const viewItem = (item: MenuItem) => setSelectedViewItem(item);
+
+  const onClosePopup = () => setSelectedViewItem(null);
 
   const renderStars = (rating: number) => {
     const fullStars = Math.floor(rating);
@@ -148,6 +148,7 @@ const Index = () => {
             onViewCart={() => setCurrentStep('cart')}
             tableNumber={tableNumber}
             viewItem={viewItem}
+            renderStars={renderStars}
           />
           {cartItems.length > 0 && (
             <FloatingCart
@@ -196,7 +197,7 @@ const Index = () => {
       )}
 
       {selectedViewItem && (
-        <ViewItem selectedViewItem={selectedViewItem} setSelectedViewItem={setSelectedViewItem} renderStars={renderStars}
+        <ViewItem selectedViewItem={selectedViewItem} onClose={onClosePopup} renderStars={renderStars}
         />
       )}
     </div>

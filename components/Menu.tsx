@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, ReactElement } from 'react';
 // import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -12,7 +12,8 @@ interface MenuProps {
     onAddToCart: (item: MenuItem, quantity?: number, notes?: string) => void;
     onViewCart: () => void;
     tableNumber: string;
-    viewItem: (item: MenuItem) => void
+    viewItem: (item: MenuItem) => void;
+    renderStars: (rating: number) => ReactElement;
 }
 
 const mockMenuItems: MenuItem[] = [
@@ -24,7 +25,7 @@ const mockMenuItems: MenuItem[] = [
         image: 'https://images.pexels.com/photos/16890470/pexels-photo-16890470.jpeg',
         category: 'Pizza',
         dietary: ['vegetarian'],
-        rating: 4,
+        rating: 4.5,
     },
     {
         id: '2',
@@ -45,7 +46,7 @@ const mockMenuItems: MenuItem[] = [
         image: 'https://images.pexels.com/photos/2097090/pexels-photo-2097090.jpeg',
         category: 'Salads',
         dietary: ['vegetarian'],
-        rating: 3,
+        rating: 3.3,
     },
     {
         id: '4',
@@ -55,7 +56,7 @@ const mockMenuItems: MenuItem[] = [
         image: 'https://images.pexels.com/photos/3763847/pexels-photo-3763847.jpeg',
         category: 'Main Course',
         dietary: ['gluten-free'],
-        rating: 5,
+        rating: 4.7,
     },
     {
         id: '5',
@@ -75,14 +76,14 @@ const mockMenuItems: MenuItem[] = [
         image: 'https://images.pexels.com/photos/32645223/pexels-photo-32645223.jpeg',
         category: 'Desserts',
         dietary: ['vegetarian'],
-        rating: 5,
+        rating: 4.4,
     },
 ];
 
 const categories = ['All', 'Appetizers', 'Pizza', 'Main Course', 'Desserts'];
 const dietaryFilters = ['vegetarian', 'vegan', 'gluten-free', 'spicy'];
 
-const Menu = ({ onAddToCart, onViewCart, tableNumber, viewItem }: MenuProps) => {
+const Menu = ({ onAddToCart, onViewCart, tableNumber, viewItem, renderStars }: MenuProps) => {
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [selectedDietary, setSelectedDietary] = useState<string[]>([]);
     const [searchQuery, setSearchQuery] = useState('');
@@ -263,13 +264,7 @@ const Menu = ({ onAddToCart, onViewCart, tableNumber, viewItem }: MenuProps) => 
                                 <div className="text-right">
                                     <p className="text-orange-500 font-bold">${item.price}</p>
                                     <div className="flex justify-end gap-[1px]">
-                                        {Array.from({ length: 5 }).map((_, i) => (
-                                            <StarIcon
-                                                key={i}
-                                                className={`h-4 w-4 ${i < item.rating ? 'text-yellow-400' : 'text-gray-300'
-                                                    }`}
-                                            />
-                                        ))}
+                                        {renderStars(item.rating)}
                                     </div>
                                 </div>
                             </div>
