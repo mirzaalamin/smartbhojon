@@ -101,6 +101,8 @@ const Index = () => {
     setPaymentStatus('pending')
     setCurrentStep('pending');
 
+    console.log(cartItems)
+
     if (paymentMethod === 'table') {
       setTimeout(() => {
         setPaymentStatus('success')

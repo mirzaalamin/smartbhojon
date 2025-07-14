@@ -26,7 +26,7 @@ export const SettingsPanel = ({
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
             <Card className="w-full max-w-md mx-4">
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
-                    <CardTitle>KDS Settings</CardTitle>
+                    <CardTitle>Kitchen Settings</CardTitle>
                     <Button variant="ghost" size="sm" onClick={onClose}>
                         <X className="h-4 w-4" />
                     </Button>
@@ -79,7 +79,7 @@ export const SettingsPanel = ({
                     </div>
 
                     <Button onClick={onClose} className="w-full">
-                        Close Settings
+                        Save Changes
                     </Button>
                 </CardContent>
             </Card>
