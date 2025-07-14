@@ -3,10 +3,11 @@ import { useState, useMemo, ReactElement } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
-import { Filter, Search, Plus, MapPin } from 'lucide-react';
+import { Filter, Search, Plus, MapPin, Utensils } from 'lucide-react';
 import type { MenuItem } from '../app/page';
 import { StarIcon } from '@heroicons/react/24/solid';
 import Image from 'next/image';
+import MobileNavbar from './Header/MobileNavbar';
 
 interface MenuProps {
     onAddToCart: (item: MenuItem, quantity?: number, notes?: string) => void;
@@ -115,33 +116,31 @@ const Menu = ({ onAddToCart, onViewCart, tableNumber, viewItem, renderStars }: M
             <div className="sticky top-0 z-1 bg-white/95 backdrop-blur-sm border-b shadow-sm">
                 <div className="px-4 py-4">
                     <div className="flex items-center justify-between mb-4">
-                        <div>
-                            <h1 className="text-2xl font-bold text-gray-800">Menu</h1>
-                            <div className="flex items-center text-sm text-gray-600">
-                                <MapPin className="w-4 h-4 mr-1" />
-                                Table {tableNumber}
-                            </div>
+
+                        <MobileNavbar tableNumber={tableNumber} />
+
+                    </div>
+
+                    {/* Search */}
+                    <div className='flex gap-2'>
+                        <div className="flex-1 relative mb-4">
+                            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                            <Input
+                                placeholder="Search menu items..."
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                className="pl-10"
+                            />
                         </div>
                         <Button
                             variant="outline"
                             size="sm"
                             onClick={() => setShowFilters(!showFilters)}
-                            className="flex items-center space-x-2"
+                            className="flex items-center space-x-2 h-9"
                         >
                             <Filter className="w-4 h-4" />
                             <span>Filters</span>
                         </Button>
-                    </div>
-
-                    {/* Search */}
-                    <div className="relative mb-4">
-                        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-                        <Input
-                            placeholder="Search menu items..."
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                            className="pl-10"
-                        />
                     </div>
 
                     {/* Category Filters */}
@@ -184,59 +183,18 @@ const Menu = ({ onAddToCart, onViewCart, tableNumber, viewItem, renderStars }: M
             <div className="px-4 py-6 pb-20">
                 <div className="grid lg:grid-cols-5 gap-4">
                     {filteredItems.map(item => (
-                        // <Card key={item.id} className="overflow-hidden shadow-md hover:shadow-lg transition-shadow">
-                        //     <CardContent className="p-0">
-                        //         <div className="flex">
-                        //             <div className="flex-1 p-4">
-                        //                 <div className="flex items-start justify-between mb-2">
-                        //                     <h3 className="font-semibold text-gray-800">{item.name}</h3>
-                        //                     <span className="text-lg font-bold text-orange-600">${item.price}</span>
-                        //                 </div>
-                        //                 <p className="text-sm text-gray-600 mb-3">{item.description}</p>
-                        //                 <div className="flex items-center justify-between">
-                        //                     <div className="flex flex-wrap gap-1">
-                        //                         {item.dietary.map(diet => (
-                        //                             <Badge key={diet} variant="secondary" className="text-xs capitalize">
-                        //                                 {diet}
-                        //                             </Badge>
-                        //                         ))}
-                        //                         {item.spiceLevel && (
-                        //                             <Badge variant="destructive" className="text-xs">
-                        //                                 🌶️ {item.spiceLevel}/5
-                        //                             </Badge>
-                        //                         )}
-                        //                     </div>
-                        //                     <Button
-                        //                         size="sm"
-                        //                         onClick={() => onAddToCart(item)}
-                        //                         className="bg-orange-500 hover:bg-orange-600"
-                        //                     >
-                        //                         <Plus className="w-4 h-4 mr-1" />
-                        //                         Add
-                        //                     </Button>
-                        //                 </div>
-                        //             </div>
-                        //             <div className="w-24 h-24 bg-gray-200 rounded-r-lg flex-shrink-0">
-                        //                 <img
-                        //                     src={item.image}
-                        //                     alt={item.name}
-                        //                     className="w-full h-full object-cover rounded-r-lg"
-                        //                 />
-                        //             </div>
-                        //         </div>
-                        //     </CardContent>
-                        // </Card>
+
                         <div key={item.id}
                             className=" m-2 bg-white border border-indigo-100 rounded-[25px] shadow-lg overflow-hidden"
                         >
                             {/* angled hero photo */}
-                            <div className="relative h-62">
+                            <div className="relative h-74">
                                 <Image
                                     src={item.image}
                                     alt={item.name}
                                     fill
                                     sizes="295px"
-                                    className="rotate-6 -translate-x-2 -translate-y-10 rounded-br-[20px] object-cover object-center"
+                                    className="-translate-y-10 object-cover "
                                     priority
                                 />
                             </div>
@@ -273,12 +231,12 @@ const Menu = ({ onAddToCart, onViewCart, tableNumber, viewItem, renderStars }: M
                             <div className="border-t flex gap-3 px-6 py-4">
                                 <Button
                                     type="submit"
-                                    className="flex-1 h-12 text-lg font-medium bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 shadow-lg"
+                                    className="flex-1 h-10 text-lg font-medium bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 shadow-lg"
                                     onClick={() => onAddToCart(item)}
                                 >
                                     Add to cart
                                 </Button>
-                                <Button className="flex-1 h-12 text-sm font-semibold py-2 border border-orange-500 text-orange-500 bg-transparent hover:bg-indigo-50 transition-colors" onClick={() => viewItem(item)}>
+                                <Button className="flex-1 h-10 text-sm font-semibold py-2 border border-orange-500 text-orange-500 bg-transparent hover:bg-indigo-50 transition-colors" onClick={() => viewItem(item)}>
                                     View
                                 </Button>
                             </div>

@@ -40,7 +40,7 @@ const ViewItem = ({ onClose, selectedViewItem, renderStars }: ItemProps) => {
                                 </div>
                             </div>
                             <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 cursor-pointer" onClick={onClose}>
-                                <Button type="button" className="h-12 text-lg font-medium bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 shadow-lg w-full cursor-pointer">Close</Button>
+                                <Button type="button" className="h-10 text-lg font-medium bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 shadow-lg w-full cursor-pointer">Close</Button>
                             </div>
                         </div>
                     </div>
