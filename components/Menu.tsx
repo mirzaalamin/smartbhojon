@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Filter, Search, Plus, MapPin, Utensils } from 'lucide-react';
-import type { MenuItem } from '../app/page';
+import type { MenuItem } from '../app/(root)/page';
 import { StarIcon } from '@heroicons/react/24/solid';
 import Image from 'next/image';
 import MobileNavbar from './Header/MobileNavbar';

@@ -54,15 +54,91 @@ const CreateOrder = () => {
   });
   const { toast } = useToast();
 
-  const menuItems: MenuItem[] = [
-    { id: 1, name: "Margherita Pizza", category: "pizza", price: 16.99, description: "Fresh tomatoes, mozzarella, basil", image: "/placeholder.svg", available: true, tags: ["vegetarian", "popular"] },
-    { id: 2, name: "Pepperoni Pizza", category: "pizza", price: 18.99, description: "Pepperoni, mozzarella, tomato sauce", image: "/placeholder.svg", available: true, tags: ["popular"] },
-    { id: 3, name: "Spicy Beef Burger", category: "burgers", price: 14.50, description: "Angus beef, jalapeños, spicy mayo", image: "/placeholder.svg", available: true, tags: ["spicy"] },
-    { id: 4, name: "Chicken Caesar Salad", category: "salads", price: 12.99, description: "Grilled chicken, romaine, parmesan", image: "/placeholder.svg", available: true, tags: ["healthy"] },
-    { id: 5, name: "Veggie Wrap", category: "wraps", price: 9.99, description: "Mixed vegetables, hummus, spinach tortilla", image: "/placeholder.svg", available: true, tags: ["vegetarian", "healthy"] },
-    { id: 6, name: "Fish Tacos", category: "tacos", price: 13.99, description: "Grilled fish, cabbage slaw, chipotle sauce", image: "/placeholder.svg", available: true, tags: ["spicy"] },
-    { id: 7, name: "Chocolate Brownie", category: "desserts", price: 8.50, description: "Warm brownie with vanilla ice cream", image: "/placeholder.svg", available: true, tags: ["sweet"] },
-    { id: 8, name: "Green Smoothie", category: "beverages", price: 6.99, description: "Spinach, apple, banana, coconut water", image: "/placeholder.svg", available: true, tags: ["healthy", "vegetarian"] },
+  // const menuItems: MenuItem[] = [
+  //   { id: 1, name: "Margherita Pizza", category: "pizza", price: 16.99, description: "Fresh tomatoes, mozzarella, basil", image: "/placeholder.svg", available: true, tags: ["vegetarian", "popular"] },
+  //   { id: 2, name: "Pepperoni Pizza", category: "pizza", price: 18.99, description: "Pepperoni, mozzarella, tomato sauce", image: "/placeholder.svg", available: true, tags: ["popular"] },
+  //   { id: 3, name: "Spicy Beef Burger", category: "burgers", price: 14.50, description: "Angus beef, jalapeños, spicy mayo", image: "/placeholder.svg", available: true, tags: ["spicy"] },
+  //   { id: 4, name: "Chicken Caesar Salad", category: "salads", price: 12.99, description: "Grilled chicken, romaine, parmesan", image: "/placeholder.svg", available: true, tags: ["healthy"] },
+  //   { id: 5, name: "Veggie Wrap", category: "wraps", price: 9.99, description: "Mixed vegetables, hummus, spinach tortilla", image: "/placeholder.svg", available: true, tags: ["vegetarian", "healthy"] },
+  //   { id: 6, name: "Fish Tacos", category: "tacos", price: 13.99, description: "Grilled fish, cabbage slaw, chipotle sauce", image: "/placeholder.svg", available: true, tags: ["spicy"] },
+  //   { id: 7, name: "Chocolate Brownie", category: "desserts", price: 8.50, description: "Warm brownie with vanilla ice cream", image: "/placeholder.svg", available: true, tags: ["sweet"] },
+  //   { id: 8, name: "Green Smoothie", category: "beverages", price: 6.99, description: "Spinach, apple, banana, coconut water", image: "/placeholder.svg", available: true, tags: ["healthy", "vegetarian"] },
+  // ];
+
+  const menuItems = [
+    {
+      id: 1,
+      name: 'Margherita Pizza',
+      description: 'Fresh mozzarella, tomato sauce, basil, and olive oil',
+      price: 16.99,
+      image: 'https://images.pexels.com/photos/16890470/pexels-photo-16890470.jpeg',
+      category: 'Pizza',
+      dietary: ['vegetarian'],
+      rating: 4.5,
+      available: true, popular: true,
+      tags: ["vegetarian", "popular"]
+    },
+    {
+      id: 2,
+      name: 'Spicy Chicken Wings',
+      description: 'Buffalo wings with celery sticks and blue cheese dip',
+      price: 12.99,
+      image: 'https://images.pexels.com/photos/29908653/pexels-photo-29908653.jpeg',
+      category: 'Appetizers',
+      dietary: ['spicy'],
+      spiceLevel: 3,
+      rating: 5,
+      available: true, popular: false,
+      tags: ["popular"]
+    },
+    {
+      id: 3,
+      name: 'Caesar Salad',
+      description: 'Romaine lettuce, parmesan, croutons, caesar dressing',
+      price: 11.99,
+      image: 'https://images.pexels.com/photos/2097090/pexels-photo-2097090.jpeg',
+      category: 'Salads',
+      dietary: ['vegetarian'],
+      rating: 3.3,
+      available: false, popular: true,
+      tags: ["spicy"]
+    },
+    {
+      id: 4,
+      name: 'Grilled Salmon',
+      description: 'Atlantic salmon with lemon butter and seasonal vegetables',
+      price: 24.99,
+      image: 'https://images.pexels.com/photos/3763847/pexels-photo-3763847.jpeg',
+      category: 'Main Course',
+      dietary: ['gluten-free'],
+      rating: 4.7,
+      available: false, popular: false,
+      tags: ["healthy"]
+    },
+    {
+      id: 5,
+      name: 'Veggie Burger',
+      description: 'Plant-based patty with avocado, lettuce, and sweet potato fries',
+      price: 15.99,
+      image: 'https://images.pexels.com/photos/3607284/pexels-photo-3607284.jpeg',
+      category: 'Main Course',
+      dietary: ['vegetarian', 'vegan'],
+      rating: 4,
+      available: true, popular: false,
+      tags: ["spicy"]
+    },
+    {
+      id: 6,
+      name: 'Chocolate Lava Cake',
+      description: 'Warm chocolate cake with vanilla ice cream',
+      price: 8.99,
+      image: 'https://images.pexels.com/photos/32645223/pexels-photo-32645223.jpeg',
+      category: 'Desserts',
+      dietary: ['vegetarian'],
+      rating: 4.4,
+      available: true, popular: false,
+      tags: ["healthy"]
+    },
   ];
 
   const categories = ["all", "pizza", "burgers", "salads", "wraps", "tacos", "desserts", "beverages"];

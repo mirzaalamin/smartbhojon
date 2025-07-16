@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import { Button } from './ui/button'
-import { MenuItem } from '@/app/page'
+import { MenuItem } from '@/app/(root)/page'
 
 interface ItemProps {
     onClose: () => void;

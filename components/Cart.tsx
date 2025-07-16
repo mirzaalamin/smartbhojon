@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ArrowLeft, Plus, Minus, Trash2, CreditCard, MapPin, ShoppingBag } from 'lucide-react';
-import type { CartItem } from '../app/page';
+import type { CartItem } from '../app/(root)/page';
 
 interface CartProps {
     items: CartItem[];

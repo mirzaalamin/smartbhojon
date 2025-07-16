@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/admin/ui/card";
 import { Badge } from "@/components/admin/ui/badge";
 import { Switch } from "@/components/admin/ui/switch";
-import { MenuItem } from "@/app/page";
+import { MenuItem } from "@/app/(root)/page";
 
 const MenuManagement = () => {
   const [searchTerm, setSearchTerm] = useState("");

@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
 import { Clock, CheckCircle, Utensils, MapPin } from 'lucide-react';
-import type { CartItem, OrderStatus } from '../app/page';
+import type { CartItem, OrderStatus } from '../app/(root)/page';
 
 interface OrderTrackingProps {
     orderId: string;
