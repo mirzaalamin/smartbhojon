@@ -40,7 +40,7 @@ export const ItemSummary = ({ orders, darkMode }: ItemSummaryProps) => {
     }
 
     return (
-        <aside className={`w-72 p-6 border-l ${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-gray-50 border-gray-200'
+        <aside className={`w-82 p-6 border-l ${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-gray-50 border-gray-200'
             }`}>
             <Card className={darkMode ? 'bg-gray-700' : 'bg-white'}>
                 <CardHeader>
