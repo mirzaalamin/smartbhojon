@@ -32,13 +32,12 @@ const navigation = [
 const Sidebar = () => {
   const pathname = usePathname()
 
-  const isActive = pathname === pathname
   return (
     <div className="w-64 bg-white shadow-sm border-r border-cream-200 flex flex-col">
       <div className="p-6 border-b border-cream-200">
         <div className="flex items-center gap-2">
           <ChefHat className="h-8 w-8 text-amber-600" />
-          <span className="text-xl font-bold text-slate-800">RestaurantPro</span>
+          <span className="text-xl font-bold text-slate-800">BHOJON</span>
         </div>
       </div>
 
@@ -46,6 +45,7 @@ const Sidebar = () => {
         {navigation.map((item) => {
           const isActive = pathname === item.href;
           return (<Link
+            key={item.name}
             href={item.href}
             className={cn(
               'flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors',
