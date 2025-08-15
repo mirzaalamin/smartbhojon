@@ -1,78 +1,248 @@
 {
-    "menus": [
+  "menus": [
+    {
+      "id": "1",
+      "name": "Margherita Pizza",
+      "description": "Fresh mozzarella, tomato sauce, basil, and olive oil",
+      "price": 16.99,
+      "image": "https://images.pexels.com/photos/16890470/pexels-photo-16890470.jpeg",
+      "category": "Pizza",
+      "dietary": [
+        "vegetarian"
+      ],
+      "rating": 4.5
+    },
+    {
+      "id": "2",
+      "name": "Spicy Chicken Wings",
+      "description": "Buffalo wings with celery sticks and blue cheese dip",
+      "price": 12.99,
+      "image": "https://images.pexels.com/photos/29908653/pexels-photo-29908653.jpeg",
+      "category": "Appetizers",
+      "dietary": [
+        "spicy"
+      ],
+      "spiceLevel": 3,
+      "rating": 5
+    },
+    {
+      "id": "3",
+      "name": "Caesar Salad",
+      "description": "Romaine lettuce, parmesan, croutons, caesar dressing",
+      "price": 11.99,
+      "image": "https://images.pexels.com/photos/2097090/pexels-photo-2097090.jpeg",
+      "category": "Salads",
+      "dietary": [
+        "vegetarian"
+      ],
+      "rating": 3.3
+    },
+    {
+      "id": "4",
+      "name": "Grilled Salmon",
+      "description": "Atlantic salmon with lemon butter and seasonal vegetables",
+      "price": 24.99,
+      "image": "https://images.pexels.com/photos/3763847/pexels-photo-3763847.jpeg",
+      "category": "Main Course",
+      "dietary": [
+        "gluten-free"
+      ],
+      "rating": 4.7
+    },
+    {
+      "id": "5",
+      "name": "Veggie Burger",
+      "description": "Plant-based patty with avocado, lettuce, and sweet potato fries",
+      "price": 15.99,
+      "image": "https://images.pexels.com/photos/3607284/pexels-photo-3607284.jpeg",
+      "category": "Main Course",
+      "dietary": [
+        "vegetarian",
+        "vegan"
+      ],
+      "rating": 4
+    },
+    {
+      "id": "6",
+      "name": "Chocolate Lava Cake",
+      "description": "Warm chocolate cake with vanilla ice cream",
+      "price": 8.99,
+      "image": "https://images.pexels.com/photos/32645223/pexels-photo-32645223.jpeg",
+      "category": "Desserts",
+      "dietary": [
+        "vegetarian"
+      ],
+      "rating": 4.4
+    }
+  ],
+  "orders": [
+    {
+      "orderId": 101,
+      "tableNumber": 5,
+      "createdAt": "2025-07-24T12:30:00Z",
+      "status": "In Progress",
+      "items": [
         {
-            "id": "1",
-            "name": "Margherita Pizza",
-            "description": "Fresh mozzarella, tomato sauce, basil, and olive oil",
-            "price": 16.99,
-            "image": "https://images.pexels.com/photos/16890470/pexels-photo-16890470.jpeg",
-            "category": "Pizza",
-            "dietary": [
-                "vegetarian"
-            ],
-            "rating": 4.5
+          "id": 1,
+          "name": "Greek Salad",
+          "category": "Salads",
+          "description": "Tomatoes, cucumbers, red onions, feta cheese, olives",
+          "dietary": [
+            "vegetarian",
+            "gluten-free"
+          ],
+          "image": "https://images.pexels.com/photos/1435907/pexels-photo-1435907.jpeg",
+          "price": 10.99,
+          "quantity": 2,
+          "rating": 4.5,
+          "notes": "No onions"
         },
         {
-            "id": "2",
-            "name": "Spicy Chicken Wings",
-            "description": "Buffalo wings with celery sticks and blue cheese dip",
-            "price": 12.99,
-            "image": "https://images.pexels.com/photos/29908653/pexels-photo-29908653.jpeg",
-            "category": "Appetizers",
-            "dietary": [
-                "spicy"
-            ],
-            "spiceLevel": 3,
-            "rating": 5
-        },
-        {
-            "id": "3",
-            "name": "Caesar Salad",
-            "description": "Romaine lettuce, parmesan, croutons, caesar dressing",
-            "price": 11.99,
-            "image": "https://images.pexels.com/photos/2097090/pexels-photo-2097090.jpeg",
-            "category": "Salads",
-            "dietary": [
-                "vegetarian"
-            ],
-            "rating": 3.3
-        },
-        {
-            "id": "4",
-            "name": "Grilled Salmon",
-            "description": "Atlantic salmon with lemon butter and seasonal vegetables",
-            "price": 24.99,
-            "image": "https://images.pexels.com/photos/3763847/pexels-photo-3763847.jpeg",
-            "category": "Main Course",
-            "dietary": [
-                "gluten-free"
-            ],
-            "rating": 4.7
-        },
-        {
-            "id": "5",
-            "name": "Veggie Burger",
-            "description": "Plant-based patty with avocado, lettuce, and sweet potato fries",
-            "price": 15.99,
-            "image": "https://images.pexels.com/photos/3607284/pexels-photo-3607284.jpeg",
-            "category": "Main Course",
-            "dietary": [
-                "vegetarian",
-                "vegan"
-            ],
-            "rating": 4
-        },
-        {
-            "id": "6",
-            "name": "Chocolate Lava Cake",
-            "description": "Warm chocolate cake with vanilla ice cream",
-            "price": 8.99,
-            "image": "https://images.pexels.com/photos/32645223/pexels-photo-32645223.jpeg",
-            "category": "Desserts",
-            "dietary": [
-                "vegetarian"
-            ],
-            "rating": 4.4
+          "id": 2,
+          "name": "Grilled Chicken Sandwich",
+          "category": "Sandwiches",
+          "description": "Grilled chicken breast, lettuce, tomato, mayo on a bun",
+          "dietary": [],
+          "image": "https://images.pexels.com/photos/1639563/pexels-photo-1639563.jpeg",
+          "price": 12.99,
+          "quantity": 1,
+          "rating": 4,
+          "notes": "Extra mayo"
         }
-    ]
+      ],
+      "id": "7eb1"
+    },
+    {
+      "orderId": 102,
+      "tableNumber": 12,
+      "createdAt": "2025-07-24T12:45:00Z",
+      "status": "Ready to Serve",
+      "items": [
+        {
+          "id": 3,
+          "name": "Caesar Salad",
+          "category": "Salads",
+          "description": "Romaine lettuce, parmesan, croutons, caesar dressing",
+          "dietary": [
+            "vegetarian"
+          ],
+          "image": "https://images.pexels.com/photos/2097090/pexels-photo-2097090.jpeg",
+          "price": 11.99,
+          "quantity": 1,
+          "rating": 3.3,
+          "notes": null
+        },
+        {
+          "id": 5,
+          "name": "Margarita Pizza",
+          "category": "Pizza",
+          "description": "Tomato sauce, fresh mozzarella, basil leaves",
+          "dietary": [
+            "vegetarian"
+          ],
+          "image": "https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg",
+          "price": 14.99,
+          "quantity": 1,
+          "rating": 4.2,
+          "notes": "Extra cheese"
+        }
+      ],
+      "id": "c136"
+    },
+    {
+      "orderId": 103,
+      "tableNumber": 9,
+      "createdAt": "2025-07-24T12:55:00Z",
+      "status": "Completed",
+      "items": [
+        {
+          "id": 4,
+          "name": "Vegan Burger",
+          "category": "Burgers",
+          "description": "Plant-based patty, vegan cheese, lettuce, tomato, vegan mayo",
+          "dietary": [
+            "vegan"
+          ],
+          "image": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg",
+          "price": 13.49,
+          "quantity": 1,
+          "rating": 4.7,
+          "notes": "No pickles"
+        }
+      ],
+      "id": "72eb"
+    },
+    {
+      "id": "12345",
+      "orderId": "ORD-1755263218389",
+      "tableNumber": 55,
+      "createdAt": "2025-07-24T12:30:00Z",
+      "status": "In Progress",
+      "items": [
+        {
+          "id": "3",
+          "name": "Caesar Salad",
+          "description": "Romaine lettuce, parmesan, croutons, caesar dressing",
+          "price": 11.99,
+          "image": "https://images.pexels.com/photos/2097090/pexels-photo-2097090.jpeg",
+          "category": "Salads",
+          "dietary": [
+            "vegetarian"
+          ],
+          "rating": 3.3,
+          "quantity": 1
+        },
+        {
+          "id": "4",
+          "name": "Grilled Salmon",
+          "description": "Atlantic salmon with lemon butter and seasonal vegetables",
+          "price": 24.99,
+          "image": "https://images.pexels.com/photos/3763847/pexels-photo-3763847.jpeg",
+          "category": "Main Course",
+          "dietary": [
+            "gluten-free"
+          ],
+          "rating": 4.7,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "8506dac6669a1",
+      "orderId": "ORD-1755277515167",
+      "tableNumber": "200",
+      "paymentType": "table",
+      "createdAt": 1755277515167,
+      "status": "pending",
+      "items": [
+        {
+          "id": "1",
+          "name": "Margherita Pizza",
+          "description": "Fresh mozzarella, tomato sauce, basil, and olive oil",
+          "price": 16.99,
+          "image": "https://images.pexels.com/photos/16890470/pexels-photo-16890470.jpeg",
+          "category": "Pizza",
+          "dietary": [
+            "vegetarian"
+          ],
+          "rating": 4.5,
+          "quantity": 1
+        },
+        {
+          "id": "2",
+          "name": "Spicy Chicken Wings",
+          "description": "Buffalo wings with celery sticks and blue cheese dip",
+          "price": 12.99,
+          "image": "https://images.pexels.com/photos/29908653/pexels-photo-29908653.jpeg",
+          "category": "Appetizers",
+          "dietary": [
+            "spicy"
+          ],
+          "spiceLevel": 3,
+          "rating": 5,
+          "quantity": 1
+        }
+      ]
+    }
+  ]
 }

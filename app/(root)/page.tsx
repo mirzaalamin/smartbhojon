@@ -11,6 +11,8 @@ import Menu from '@/components/Menu';
 import Processing from '@/components/Processing';
 import ViewItem from '@/components/ViewItem';
 import { Star, StarHalf } from 'lucide-react';
+import { createOrder } from "../../lib/actions/orderActions"
+
 
 export type OrderStatus = 'preparing' | 'ready' | 'delivered';
 
@@ -30,6 +32,7 @@ export interface CartItem extends MenuItem {
   quantity: number;
   notes?: string;
 }
+
 
 const Index = () => {
   const [currentStep, setCurrentStep] = useState<'welcome' | 'menu' | 'cart' | 'tracking' | 'post-order' | 'pending'>('welcome');
@@ -95,9 +98,22 @@ const Index = () => {
     setCurrentStep('menu');
   };
 
-  const handleCheckout = (paymentMethod: 'table' | 'counter') => {
+  const handleCheckout = async (paymentMethod: 'table' | 'counter') => {
     const newOrderId = `ORD-${Date.now()}`;
+    const id = Math.random().toString(16).slice(2, 18);
     setOrderId(newOrderId);
+    const newOrder = await createOrder(
+      {
+        id: id,
+        orderId: newOrderId,
+        tableNumber: tableNumber,
+        paymentType: paymentMethod,
+        createdAt: Date.now(),
+        status: "pending",
+        items: [...cartItems]
+      }
+    )
+    console.log(newOrder)
     setPaymentStatus('pending')
     setCurrentStep('pending');
 
