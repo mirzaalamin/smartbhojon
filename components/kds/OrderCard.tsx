@@ -51,7 +51,7 @@ export const OrderCard = ({ order, onMarkReady, onCompleteOrder, darkMode }: Ord
             <CardHeader className="pb-3">
                 <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-2">
-                        <h3 className={`text-xl font-bold`}>#{order.orderNumber}</h3>
+                        <h3 className={`text-xl font-bold`}>#{order.id}</h3>
                         {order.priority !== 'normal' && (
                             <span className={`px-2 py-1 text-xs font-semibold rounded-full border ${getPriorityColor(order.priority)}`}>
                                 {order.priority.toUpperCase()}
@@ -82,7 +82,7 @@ export const OrderCard = ({ order, onMarkReady, onCompleteOrder, darkMode }: Ord
                                     <span className="font-medium">{item.quantity}x</span>
                                     <span className="text-lg">{item.name}</span>
                                 </div>
-                                {item.modifiers.length > 0 && (
+                                {/* {item.modifiers.length > 0 && (
                                     <div className="ml-6 text-sm text-gray-600 mt-1">
                                         {item.modifiers.map((modifier, idx) => (
                                             <div key={idx} className={`flex items-center space-x-1`}>
@@ -92,7 +92,7 @@ export const OrderCard = ({ order, onMarkReady, onCompleteOrder, darkMode }: Ord
                                             </div>
                                         ))}
                                     </div>
-                                )}
+                                )} */}
                             </div>
                         </div>
                     ))}

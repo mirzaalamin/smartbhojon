@@ -25,8 +25,11 @@ export const OrderGrid = ({ orders, onMarkReady, onCompleteOrder, darkMode }: Or
         if (a.priority === 'rush' && b.priority !== 'rush') return -1;
         if (b.priority === 'rush' && a.priority !== 'rush') return 1;
 
-        // Then by time placed (oldest first)
-        return a.placedAt.getTime() - b.placedAt.getTime();
+        // Convert placedAt to a number (works for Date, number, or ISO string)
+        const getTime = (x: number | Date) =>
+            x instanceof Date ? x.getTime() : new Date(x).getTime();
+
+        return getTime(a.placedAt) - getTime(b.placedAt);
     });
 
     return (

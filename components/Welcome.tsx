@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Utensils, Wifi, QrCode } from 'lucide-react';
+import { Utensils, Wifi, QrCode, ChefHat } from 'lucide-react';
 import CardTwo from './Card';
 
 interface WelcomeProps {
@@ -23,11 +23,12 @@ const Welcome = ({ onStartOrder }: WelcomeProps) => {
         <div className="min-h-screen flex items-center justify-center p-4">
             <Card className="w-full max-w-md shadow-2xl border-0 bg-white/95 backdrop-blur-sm">
                 <CardContent className="p-8 text-center">
-                    <div className="mb-8">
-                        <div className="w-20 h-20 bg-gradient-to-br from-orange-400 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <Utensils className="w-10 h-10 text-white" />
+                    <div className="mb-8 flex flex-col gap-5 items-center justify-center">
+
+                        <div className="flex items-center gap-2">
+                            <ChefHat className="h-8 w-8 text-amber-600" />
+                            <span className="text-xl font-bold text-slate-800">BHOJON</span>
                         </div>
-                        <h1 className="text-3xl font-bold text-gray-800 mb-2">Bhojon</h1>
                         <p className="text-gray-600">Welcome to your dining experience</p>
                     </div>
 

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Clock, Settings, RefreshCw, Wifi } from "lucide-react";
+import { Clock, Settings, RefreshCw, Wifi, ChefHat } from "lucide-react";
 import { useState, useEffect } from "react";
 
 interface KDSHeaderProps {
@@ -51,11 +51,12 @@ export const KDSHeader = ({ darkMode, onToggleDarkMode, onToggleSettings, autoRe
             }`}>
             <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-6">
-                    <h1 className="text-2xl font-bold text-orange-600">
-                        Bhojon Kitchen
-                    </h1>
+                    <div className="flex items-center gap-2">
+                        <ChefHat className="h-8 w-8 text-amber-600" />
+                        <span className="text-xl font-bold text-slate-800">BHOJON</span>
+                    </div>
                     <div className="text-sm dark:text-white">
-                        Bistro Deluxe - Main Kitchen
+                        Bhojon - Main Kitchen
                     </div>
                 </div>
 

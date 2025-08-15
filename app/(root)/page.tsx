@@ -100,16 +100,18 @@ const Index = () => {
 
   const handleCheckout = async (paymentMethod: 'table' | 'counter') => {
     const newOrderId = `ORD-${Date.now()}`;
-    const id = Math.random().toString(16).slice(2, 18);
+    const id = Math.floor(10000 + Math.random() * 90000); // Always 5 digits
     setOrderId(newOrderId);
     const newOrder = await createOrder(
       {
-        id: id,
+        id: id.toString(),
         orderId: newOrderId,
         tableNumber: tableNumber,
         paymentType: paymentMethod,
-        createdAt: Date.now(),
-        status: "pending",
+        placedAt: Date.now() - 4 * 60000,
+        status: "in-progress",
+        priority: 'normal',
+        elapsedMinutes: 4,
         items: [...cartItems]
       }
     )

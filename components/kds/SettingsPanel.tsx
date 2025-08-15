@@ -78,7 +78,7 @@ export const SettingsPanel = ({
                         </div>
                     </div>
 
-                    <Button onClick={onClose} className="w-full">
+                    <Button onClick={onClose} className="w-full cursor-pointer">
                         Save Changes
                     </Button>
                 </CardContent>
