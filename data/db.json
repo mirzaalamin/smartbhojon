@@ -82,7 +82,7 @@
       "tableNumber": "45",
       "paymentType": "table",
       "placedAt": 1755285645515,
-      "status": "completed",
+      "status": "in-progress",
       "priority": "normal",
       "elapsedMinutes": 14,
       "items": [
@@ -122,7 +122,7 @@
       "tableNumber": "23",
       "paymentType": "counter",
       "placedAt": 1755287240557,
-      "status": "completed",
+      "status": "in-progress",
       "priority": "rush",
       "elapsedMinutes": 4,
       "items": [
@@ -176,6 +176,31 @@
             "vegetarian"
           ],
           "rating": 4.4,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "86651",
+      "orderId": "ORD-1755324815970",
+      "tableNumber": "45",
+      "paymentType": "table",
+      "placedAt": 1755324575970,
+      "status": "in-progress",
+      "priority": "normal",
+      "elapsedMinutes": 4,
+      "items": [
+        {
+          "id": "4",
+          "name": "Grilled Salmon",
+          "description": "Atlantic salmon with lemon butter and seasonal vegetables",
+          "price": 24.99,
+          "image": "https://images.pexels.com/photos/3763847/pexels-photo-3763847.jpeg",
+          "category": "Main Course",
+          "dietary": [
+            "gluten-free"
+          ],
+          "rating": 4.7,
           "quantity": 1
         }
       ]

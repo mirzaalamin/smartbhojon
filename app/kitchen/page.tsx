@@ -11,7 +11,7 @@ import { mockOrders } from "@/lib/data/mockOrders";
 import { getOrders, updateOrderStatus } from "@/lib/actions/orderActions";
 
 const Page = () => {
-    const [orders, setOrders] = useState<Order[]>(mockOrders);
+    const [orders, setOrders] = useState<Order[]>([]);
     const [activeFilter, setActiveFilter] = useState<OrderStatus | 'all'>('all');
     const [darkMode, setDarkMode] = useState(false);
     const [showSettings, setShowSettings] = useState(false);
@@ -22,7 +22,7 @@ const Page = () => {
         const getAllOrders = async () => {
             const allOrders = await getOrders()
 
-            if (allOrders.length > 0) {
+            if (allOrders?.length > 0) {
                 setOrders(allOrders)
             }
         }

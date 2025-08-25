@@ -1,5 +1,5 @@
 
-import { User, ShoppingBag } from 'lucide-react';
+import { User, ShoppingBag, ChefHat } from 'lucide-react';
 
 interface Props {
     tableNumber: number | string
@@ -14,12 +14,10 @@ const MobileNavbar = ({ tableNumber }: Props) => {
 
                 {/* Center - Logo */}
                 <div className="flex items-center">
-                    <div className="bg-gradient-to-r from-orange-500 to-red-500 rounded-lg p-2 mr-2">
-                        <div className="w-6 h-6 bg-white rounded-sm flex items-center justify-center">
-                            <span className="text-red-500 font-bold text-sm">🍽️</span>
-                        </div>
+                    <div className="flex items-center gap-2">
+                        <ChefHat className="h-8 w-8 text-amber-600" />
+                        <span className="text-xl font-bold text-slate-800 ">BHOJON</span>
                     </div>
-                    <span className="text-red-500 font-bold text-xl">Bhojon</span>
                 </div>
 
                 {/* Right - Shopping Bag Icon */}

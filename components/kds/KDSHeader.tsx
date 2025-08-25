@@ -37,7 +37,7 @@ export const KDSHeader = ({ darkMode, onToggleDarkMode, onToggleSettings, autoRe
 
     const formatTime = (date: Date) => {
         return date.toLocaleTimeString('en-US', {
-            hour12: false,
+            hour12: true,
             hour: '2-digit',
             minute: '2-digit',
             second: '2-digit'
@@ -53,7 +53,7 @@ export const KDSHeader = ({ darkMode, onToggleDarkMode, onToggleSettings, autoRe
                 <div className="flex items-center space-x-6">
                     <div className="flex items-center gap-2">
                         <ChefHat className="h-8 w-8 text-amber-600" />
-                        <span className="text-xl font-bold text-slate-800">BHOJON</span>
+                        <span className={`text-xl font-bold ${darkMode ? 'text-white' : 'text-slate-800'}`}>BHOJON</span>
                     </div>
                     <div className="text-sm dark:text-white">
                         Bhojon - Main Kitchen

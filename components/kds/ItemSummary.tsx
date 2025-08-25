@@ -25,12 +25,12 @@ export const ItemSummary = ({ orders, darkMode }: ItemSummaryProps) => {
         return (
             <aside className={`w-72 p-6 border-l ${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-gray-50 border-gray-200'
                 }`}>
-                <Card className={darkMode ? 'bg-gray-700' : 'bg-white'}>
+                <Card className={darkMode ? 'bg-gray-700 text-white' : 'bg-white'}>
                     <CardHeader>
                         <CardTitle className="text-lg">Now Preparing</CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <p className=" text-center py-4">
+                        <p className="text-center py-4">
                             No items currently being prepared
                         </p>
                     </CardContent>
